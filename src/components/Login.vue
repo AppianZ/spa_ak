@@ -1,6 +1,6 @@
 <template>
     <div id="login">
-        <h3>登录应用平台</h3>
+        <h3>登录应用平台11</h3>
         <div id="form">
             <Form ref="formInline" :model="formInline" :rules="ruleInline">
                 <Form-item prop="user">
