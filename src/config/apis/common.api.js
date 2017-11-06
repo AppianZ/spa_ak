@@ -23,3 +23,11 @@ export function userLoginOut(obj) {
 export function generateCommonList(obj) {
 	return ajaxGet('', obj);
 }
+
+export function getInitList() {
+  return ajaxPost('/auth');
+}
+
+export function getToken() {
+  return ajaxPost('/test');
+}
