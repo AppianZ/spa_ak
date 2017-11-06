@@ -101,7 +101,7 @@
           handleSubmit2() {
             console.log('点击handleSubmit2');
             getToken().then(response => {
-              console.log('---- response2 is here! ---- ');
+              console.log('---- response2 is here! ----');
               console.log(response);
             });
           },
