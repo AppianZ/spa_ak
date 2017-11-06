@@ -94,7 +94,7 @@
             handleSubmit() {
               console.log('点击handleSubmit');
               getInitList().then(response => {
-                console.log('---- response is here! ---- ');
+                console.log('---- response is here! ----');
                 console.log(response);
               });
             },
