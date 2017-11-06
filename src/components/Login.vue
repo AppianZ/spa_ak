@@ -1,6 +1,7 @@
 <template>
     <div id="login">
-        <h3>登录应用平台22</h3>
+        <!--<p id="testicon">&#xe681;</p>-->
+        <h3>登录代理商平台</h3>
         <div id="form">
             <Form ref="formInline" :model="formInline" :rules="ruleInline">
                 <Form-item prop="user">
@@ -22,19 +23,23 @@
 </template>
 
 <style lang="scss">
-    @font-face {
-      font-family: 'app-icon';  /* project id 436373 */
-      src: url('//at.alicdn.com/t/font_436373_mxf53ywypc8lg14i.eot');
-      src: url('//at.alicdn.com/t/font_436373_mxf53ywypc8lg14i.eot?#iefix') format('embedded-opentype'),
-      url('//at.alicdn.com/t/font_436373_mxf53ywypc8lg14i.woff') format('woff'),
-      url('//at.alicdn.com/t/font_436373_mxf53ywypc8lg14i.ttf') format('truetype'),
-      url('//at.alicdn.com/t/font_436373_mxf53ywypc8lg14i.svg#app-icon') format('svg');
+    @font-face {font-family: "icon";
+        src: url('./../assets/font/iconfont.eot?t=1496972878115'); /* IE9*/
+        src: url('./../assets/font/iconfont.eot?t=1496972878115#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('./../assets/font/iconfont.woff?t=1496972878115') format('woff'), /* chrome, firefox */
+        url('./../assets/font/iconfont.ttf?t=1496972878115') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+        url('./../assets/font/iconfont.svg?t=1496972878115#iconfont') format('svg'); /* iOS 4.1- */
+    }
+    #testicon {
+        font-family: 'icon';
+        color: red;
+        font-size: 50px;
     }
     #login {
         position: relative;
         width: 100%;
         height: 100%;
-        /*background: url('./../assets/images/login_bg.png') no-repeat;*/
+        background: url('./../assets/images/login_bg.png') no-repeat;
         background-size: cover;
         background-position: center;
         overflow: hidden;
@@ -70,7 +75,7 @@
 </style>
 
 <script>
-    import { getInitList, getToken } from './../config/apis/common.api';
+    import { userLogin } from './../config/apis/common.api';
 
     export default{
         data() {
@@ -91,20 +96,21 @@
             };
         },
         methods: {
-            handleSubmit() {
-              console.log('点击handleSubmit');
-              getInitList().then(response => {
-                console.log('---- response is here! ----');
-                console.log(response);
-              });
+            handleSubmit(name) {
+                this.$refs[name].validate((valid) => {
+                    if (valid) {
+                        userLogin(JSON.stringify({
+                            username: this.formInline.user,
+                            password: this.formInline.password,
+                        })).then(() => {
+                            window.localStorage.setItem('hasLoginPlatform', new Date().getTime());
+                            this.$emit('change-status');
+                        });
+                    } else {
+                        this.$Message.error('请填写正确的账号和密码!');
+                    }
+                });
             },
-          handleSubmit2() {
-            console.log('点击handleSubmit2');
-            getToken().then(response => {
-              console.log('---- response2 is here! ----');
-              console.log(response);
-            });
-          },
         },
     };
 </script>

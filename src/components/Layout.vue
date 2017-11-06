@@ -63,13 +63,18 @@
         data() {
             return {
                 navList: [{
-                    first: '一级导航',
+                    first: '代理商中心',
                     second: [{
                         to: {
-                            path: '/xxxxx',
+                            path: '/agent/agentlist',
                             query: { page: 1 },
                         },
-                        text: '二级导航',
+                        text: '代理商管理',
+                    }, {
+                        to: {
+                            path: '/egent/salelist',
+                        },
+                        text: '代理商销售情况',
                     }],
                 }],
             };

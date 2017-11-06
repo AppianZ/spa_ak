@@ -17,16 +17,15 @@
  */
 const isDev = process.env === 'development';
 let host;
-// 根据后端, 配置不同环境下请求的ip或域名
 if (process.env === 'development') {
 	host = `http://${window.location.host.split(':')[0]}:1700`;
 } else if (process.env === 'test') {
-	host = '';
+	host = 'http://manage.sonicmoving.cn';
 } else if (process.env === 'qa') {
-	host = '';
+	host = 'http://admin-qa.sonicmoving.cn';
 } else if (process.env === 'aws') {
-	host = '';
-} else if (process.env === 'ali'){
+	host = 'http://admin.sonicmoving.cn';
+} else {
 	host = '';
 }
 const cacheXhr = {};
