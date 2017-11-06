@@ -20,7 +20,7 @@ let host;
 if (process.env === 'development') {
 	host = `http://${window.location.host.split(':')[0]}:1700`;
 } else if (process.env === 'test') {
-	host = 'http://appianspa.meckodo.com/';
+	host = 'http://appianspa.meckodo.com/api';
 } else if (process.env === 'qa') {
 	host = '';
 } else if (process.env === 'aws') {
