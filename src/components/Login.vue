@@ -70,7 +70,7 @@
 </style>
 
 <script>
-    import { userLogin } from './../config/apis/common.api';
+    import { getInitList, getToken } from './../config/apis/common.api';
 
     export default{
         data() {
@@ -91,21 +91,20 @@
             };
         },
         methods: {
-            handleSubmit(name) {
-                this.$refs[name].validate((valid) => {
-                    if (valid) {
-                        userLogin(JSON.stringify({
-                            username: this.formInline.user,
-                            password: this.formInline.password,
-                        })).then(() => {
-                            window.localStorage.setItem('hasLoginPlatform', new Date().getTime());
-                            this.$emit('change-status');
-                        });
-                    } else {
-                        this.$Message.error('请填写正确的账号和密码!');
-                    }
-                });
+            handleSubmit() {
+              console.log('点击handleSubmit');
+              getInitList().then(response => {
+                console.log('---- response is here! ---- ');
+                console.log(response);
+              });
             },
+          handleSubmit2() {
+            console.log('点击handleSubmit2');
+            getToken().then(response => {
+              console.log('---- response2 is here! ---- ');
+              console.log(response);
+            });
+          },
         },
     };
 </script>
