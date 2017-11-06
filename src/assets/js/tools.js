@@ -20,11 +20,11 @@ let host;
 if (process.env === 'development') {
 	host = `http://${window.location.host.split(':')[0]}:1700`;
 } else if (process.env === 'test') {
-	host = 'http://manage.sonicmoving.cn';
+	host = 'http://appianspa.meckodo.com/';
 } else if (process.env === 'qa') {
-	host = 'http://admin-qa.sonicmoving.cn';
+	host = '';
 } else if (process.env === 'aws') {
-	host = 'http://admin.sonicmoving.cn';
+	host = '';
 } else {
 	host = '';
 }
