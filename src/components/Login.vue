@@ -93,9 +93,9 @@
       handleSubmit() {
         console.log('点击handleSubmit');
         getInitList({
-          username: '15160039391',
-          password: '151600393912017',
-          grant_type: 'password'
+          'username': '15160039391',
+          'password': '151600393912017',
+          'grant_type': 'password'
         }).then(response => {
           console.log('---- response is here1! ----');
           console.log(response);
