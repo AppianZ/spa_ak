@@ -104,9 +104,7 @@
       },
       handleSubmit2() {
         console.log('点击handleSubmit2');
-        getToken({
-          'platform': 'app',
-        }).then(response => {
+        getToken().then(response => {
           console.log('---- response2 is here! ----');
           console.log(response);
         });
