@@ -28,6 +28,6 @@ export function getInitList(data) {
   return ajaxPost('/newauth', data);
 }
 
-export function getToken() {
-  return ajaxPost('/test');
+export function getToken(data) {
+  return ajaxPost('/newtest', data);
 }

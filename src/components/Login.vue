@@ -5,7 +5,8 @@
     <div id="form">
       <Form ref="formInline" :model="formInline" :rules="ruleInline">
         <Form-item>
-          <Button type="primary" @click="handleSubmit('formInline')">登录</Button>
+          <Button type="primary" @click="handleSubmit()">登录</Button>
+          <Button type="primary" @click="handleSubmit2()">登录2222</Button>
         </Form-item>
       </Form>
     </div>
@@ -103,7 +104,9 @@
       },
       handleSubmit2() {
         console.log('点击handleSubmit2');
-        getToken().then(response => {
+        getToken({
+          'platform': 'app',
+        }).then(response => {
           console.log('---- response2 is here! ----');
           console.log(response);
         });
