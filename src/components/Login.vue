@@ -92,7 +92,11 @@
     methods: {
       handleSubmit() {
         console.log('点击handleSubmit');
-        getInitList().then(response => {
+        getInitList({
+          username: '17601471739',
+          password: '176014717392017',
+          grant_type: 'password'
+        }).then(response => {
           console.log('---- response is here! ----');
           console.log(response);
         });
