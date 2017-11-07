@@ -25,7 +25,7 @@ export function generateCommonList(obj) {
 }
 
 export function getInitList(data) {
-  return ajaxPost('/newauth', JSON.stringify(data), 'application/json');
+  return ajaxPost('/newauth', data, 'application/json');
 }
 
 export function getToken() {
